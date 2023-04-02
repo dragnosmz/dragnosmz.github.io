@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="https://dragnosmz.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://dragnosmz.github.io/posts/0x01/" />
+    <title>0x01 __always_inline, linux, and musl</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://dragnosmz.github.io/">Senath&#39;s blog</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/about/" title="about">about</a>
+            </li><li>
+                <a href="/contact/" title="contact">contact</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>0x01 __always_inline, linux, and musl</h1>
+        <div>
+                <time>November 7, 2022</time>
+            </div>
+    </header><p>If you&rsquo;re trying to install kiss linux (or any non-glibc distribution) with a linux 5.x kernel, you may find that you&rsquo;ll run into an error trying to build the kernel.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/usr/include/linux/byteorder/little_endian.h:44:8: error: unknown type name <span style="color:#e6db74">&#39;__always_inline&#39;</span>
+</span></span></code></pre></div><p>On a system running glibc, this isn&rsquo;t particularly an issue; __always_inline is defined.<br>
+This isn&rsquo;t the case on systems that are using musl or other libc&rsquo;s though.</p>
+<p>So, as a quick fix, open up /usr/include/linux/swab.h in your flavor of text editor, and include linux/stddef.h just below linux/types.h.</p>
+<p><code>#include &lt;linux/types.h&gt;</code></p>
+<p><code>#include &lt;linux/stddef.h&gt;</code></p>
+<p>With that, try to build again and you should be up an running.<br>
+Several PRs have been made in regards to this issue, so hopefully this will be fixed soon.</p>
+</article>
+
+        </main><footer id="footer">
+    
+</footer>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Senath&#39;s blog</title>
+    <link>https://dragnosmz.github.io/categories/</link>
+    <description>Recent content in Categories on Senath&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://dragnosmz.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    <item>
+      <title>0x02 systemdo or systemdon&#39;t</title>
+      <link>https://dragnosmz.github.io/posts/0x02/</link>
+      <pubDate>Sat, 14 Jan 2023 00:00:00 +0530</pubDate>
+      
+      <guid>https://dragnosmz.github.io/posts/0x02/</guid>
+      <description>&lt;p&gt;Often times in the Linux community, people will tell you things like &amp;ldquo;systemd is bad&amp;rdquo; and that you shouldn&amp;rsquo;t use it.&lt;br&gt;
+Then they will go on a triad of reasons why systemd is bad.&lt;br&gt;
+Now, to any normal or informed user, some of these arguments against systemd may be considered valid.&lt;br&gt;
+But to any other user, in particular users new to Linux, these are horribly misleading reasons to use something other than systemd.&lt;br&gt;
+The latter crowd is who this blog entry is for.&lt;/p&gt;
+&lt;p&gt;Systemd calls itself a &amp;ldquo;software suite.&amp;rdquo; So, as such, it provides many tools&amp;ndash;few of which are actually simple&amp;ndash;that are useful in the runtime of the operating system.&lt;br&gt;
+None of systemd&amp;rsquo;s components are inherently bad.&lt;br&gt;
+The problem with systemd is that the entirety of the software suite is executed as pid 1.&lt;br&gt;
+The first process is the one that on many systems is the init system. It is the highest parent process in the hierarchy, as it is executed by the kernel.&lt;br&gt;
+Now in some applications, this is what you may want. You may want a reliable and battle tested process running as the init, especially on servers.&lt;br&gt;
+You may even want it on a desktop as well, for ease of use.&lt;br&gt;
+The biggest problem with being told what init to use and what not to use is that what works for others may not work for you.&lt;/p&gt;
+&lt;p&gt;A lot of people have asked me what init they should use. The simplest answer, use the one that works. If systemd works for your system, why replace it?&lt;br&gt;
+On top of that, some distributions of Linux almost hard depend on systemd. For example, &lt;em&gt;&lt;a href=&#34;https://archlinux.org/&#34;&gt;Arch Linux&lt;/a&gt;&lt;/em&gt;, where the entire system is built on the premise of using systemd. Packages that are installed have appropiate unit files for systemd. Replacing it, while it can be done,&lt;br&gt;
+is a tidious and quite annoying process.&lt;/p&gt;
+&lt;p&gt;So all of this is to say: if you&amp;rsquo;re the user who is new to linux, and you don&amp;rsquo;t know what init to use, don&amp;rsquo;t change your init at all.&lt;br&gt;
+To quote a friend of mine, &lt;em&gt;&amp;ldquo;Linux users are all about freedom of choice, right up until someone&amp;rsquo;s choice differs from theirs.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;And on the opposite side of the spectrum, if you&amp;rsquo;re the redbilled based user who is preaching to the newer, pure linux users:&lt;br&gt;
+Shut up. Let them learn the pros or cons of the software themselves. After all, for as much as I dislike systemd myself, &lt;em&gt;it just works&lt;/em&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>0x01 __always_inline, linux, and musl</title>
+      <link>https://dragnosmz.github.io/posts/0x01/</link>
+      <pubDate>Mon, 07 Nov 2022 00:00:00 +0530</pubDate>
+      
+      <guid>https://dragnosmz.github.io/posts/0x01/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re trying to install kiss linux (or any non-glibc distribution) with a linux 5.x kernel, you may find that you&amp;rsquo;ll run into an error trying to build the kernel.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/include/linux/byteorder/little_endian.h:44:8: error: unknown type name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__always_inline&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;On a system running glibc, this isn&amp;rsquo;t particularly an issue; __always_inline is defined.&lt;br&gt;
+This isn&amp;rsquo;t the case on systems that are using musl or other libc&amp;rsquo;s though.&lt;/p&gt;
+&lt;p&gt;So, as a quick fix, open up /usr/include/linux/swab.h in your flavor of text editor, and include linux/stddef.h just below linux/types.h.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#include &amp;lt;linux/types.h&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#include &amp;lt;linux/stddef.h&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;With that, try to build again and you should be up an running.&lt;br&gt;
+Several PRs have been made in regards to this issue, so hopefully this will be fixed soon.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    
+    
+    
+  </channel>
+</rss>

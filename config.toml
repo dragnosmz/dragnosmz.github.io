@@ -1,0 +1,18 @@
+baseURL = 'https://dragnosmz.github.io/'
+languageCode = 'en-us'
+title = "Senath's blog"
+theme = 'etch'
+[menu]
+ 
+  [[menu.main]]
+    identifier = "about"
+    name = "about"
+    title = "about"
+    url = "/about/"
+    weight = 10
+  [[menu.main]]
+    identifier = "contact"
+    name = "contact"
+    title = "contact"
+    url = "/contact/"
+    weight = 10

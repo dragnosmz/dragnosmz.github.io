@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="https://dragnosmz.github.io/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.min.css">
+
+    <link rel="canonical" href="https://dragnosmz.github.io/posts/0x02/" />
+    <title>0x02 systemdo or systemdon&#39;t</title>
+</head>
+<body><header id="banner">
+    <h2><a href="https://dragnosmz.github.io/">Senath&#39;s blog</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/about/" title="about">about</a>
+            </li><li>
+                <a href="/contact/" title="contact">contact</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>0x02 systemdo or systemdon&#39;t</h1>
+        <div>
+                <time>January 14, 2023</time>
+            </div>
+    </header><p>Often times in the Linux community, people will tell you things like &ldquo;systemd is bad&rdquo; and that you shouldn&rsquo;t use it.<br>
+Then they will go on a triad of reasons why systemd is bad.<br>
+Now, to any normal or informed user, some of these arguments against systemd may be considered valid.<br>
+But to any other user, in particular users new to Linux, these are horribly misleading reasons to use something other than systemd.<br>
+The latter crowd is who this blog entry is for.</p>
+<p>Systemd calls itself a &ldquo;software suite.&rdquo; So, as such, it provides many tools&ndash;few of which are actually simple&ndash;that are useful in the runtime of the operating system.<br>
+None of systemd&rsquo;s components are inherently bad.<br>
+The problem with systemd is that the entirety of the software suite is executed as pid 1.<br>
+The first process is the one that on many systems is the init system. It is the highest parent process in the hierarchy, as it is executed by the kernel.<br>
+Now in some applications, this is what you may want. You may want a reliable and battle tested process running as the init, especially on servers.<br>
+You may even want it on a desktop as well, for ease of use.<br>
+The biggest problem with being told what init to use and what not to use is that what works for others may not work for you.</p>
+<p>A lot of people have asked me what init they should use. The simplest answer, use the one that works. If systemd works for your system, why replace it?<br>
+On top of that, some distributions of Linux almost hard depend on systemd. For example, <em><a href="https://archlinux.org/">Arch Linux</a></em>, where the entire system is built on the premise of using systemd. Packages that are installed have appropiate unit files for systemd. Replacing it, while it can be done,<br>
+is a tidious and quite annoying process.</p>
+<p>So all of this is to say: if you&rsquo;re the user who is new to linux, and you don&rsquo;t know what init to use, don&rsquo;t change your init at all.<br>
+To quote a friend of mine, <em>&ldquo;Linux users are all about freedom of choice, right up until someone&rsquo;s choice differs from theirs.&rdquo;</em></p>
+<p>And on the opposite side of the spectrum, if you&rsquo;re the redbilled based user who is preaching to the newer, pure linux users:<br>
+Shut up. Let them learn the pros or cons of the software themselves. After all, for as much as I dislike systemd myself, <em>it just works</em>.</p>
+</article>
+
+        </main><footer id="footer">
+    
+</footer>
+</body>
+</html>
