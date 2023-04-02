@@ -16,6 +16,6 @@ other — dragnosmz@proton.me
 
 
 
-#### I'm on
+#### I'm on,
 \
 *[Github](https://github.com/dragnosmz)* ,  *[Steam](https://steamcommunity.com/id/dragnosmz)* and *[Patreon](https://www.patreon.com/dragnosmz)*
