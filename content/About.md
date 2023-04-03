@@ -12,7 +12,8 @@ I'm a CS student and a lowly C hobbyist. I love neuroscience, unix and synthwave
 
 My main interests at the moment are Deep learning and Programming language implementation.
 
-I believe in clean, readable code and I generally prefer languages with strong types I'm known for a various projects in *nix communities,  
+I believe in clean, readable code and I generally prefer languages with strong types.  
+I'm known for a various projects in *nix communities,  
 *[notthearchsetup](https://github.com/dragnosmz/notthearchsetup)* , *[coffee-fetch](https://github.com/dragnosmz/coffee-fetch)* and *[ozsh](https://github.com/dragnosmz/ozsh)* just to name a few.
 
 
