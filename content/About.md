@@ -6,6 +6,7 @@ menu: about
 \
 So this is my "blog" of sorts. A little about me, about the work I do, my system, etc.  
 This isn't strictly tech related. This is just a blog for me to write whatever comes to mind and a place for me to write about interesting topics and explain concepts to other people.  
+If you find this website ugly - *[It's minimal.](http://motherfuckingwebsite.com/)*
 
 I'm Senath Methsuka, I go by "Dragnosmz" on the internet. I'm an 18-year-old dude living in Sri Lanka.  
 I'm a CS student and a lowly C hobbyist. I love neuroscience, Linux and synthwave.  
