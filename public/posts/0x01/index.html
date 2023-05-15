@@ -1,47 +1,241 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
     
-    <link rel="shortcut icon" href="https://dragnosmz.github.io/favicon.ico">
+      <title>
+        0x01 __always_inline, linux, and musl ::
+        Senath&#39;s blog
+      </title>
     
-    <link rel="stylesheet" href="/css/style.min.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="If you&amp;rsquo;re trying to install kiss linux (or any non-glibc distribution) with a linux 5.x kernel, you may find that you&amp;rsquo;ll run into an error trying to build the kernel.
+/usr/include/linux/byteorder/little_endian.h:44:8: error: unknown type name &amp;#39;__always_inline&amp;#39; On a system running glibc, this isn&amp;rsquo;t actually an issue; __always_inline is defined.
+This isn&amp;rsquo;t the case on systems that are using musl or other libc&amp;rsquo;s though.
+So, as a quick fix, open up /usr/include/linux/swab."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://dragnosmz.github.io/posts/0x01/" />
 
-    <link rel="canonical" href="https://dragnosmz.github.io/posts/0x01/" />
-    <title>0x01 __always_inline, linux, and musl</title>
-</head>
-<body><header id="banner">
-    <h2><a href="https://dragnosmz.github.io/">Senath&#39;s blog</a></h2>
-    <nav>
-        <ul>
-            <li>
-                <a href="/about/" title="about">about</a>
-            </li><li>
-                <a href="/contact/" title="contact">contact</a>
-            </li>
-        </ul>
-    </nav>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link rel="stylesheet" href="https://dragnosmz.github.io/style.css" />
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://dragnosmz.github.io/img/apple-touch-icon-144-precomposed.png" />
+<link rel="shortcut icon" href="https://dragnosmz.github.io/img/favicon.png" />
+
+
+<link href="/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="0x01 __always_inline, linux, and musl"/>
+<meta name="twitter:description" content="If you&rsquo;re trying to install kiss linux (or any non-glibc distribution) with a linux 5.x kernel, you may find that you&rsquo;ll run into an error trying to build the kernel.
+/usr/include/linux/byteorder/little_endian.h:44:8: error: unknown type name &#39;__always_inline&#39; On a system running glibc, this isn&rsquo;t actually an issue; __always_inline is defined.
+This isn&rsquo;t the case on systems that are using musl or other libc&rsquo;s though.
+So, as a quick fix, open up /usr/include/linux/swab."/>
+
+
+
+<meta property="og:title" content="0x01 __always_inline, linux, and musl" />
+<meta property="og:description" content="If you&rsquo;re trying to install kiss linux (or any non-glibc distribution) with a linux 5.x kernel, you may find that you&rsquo;ll run into an error trying to build the kernel.
+/usr/include/linux/byteorder/little_endian.h:44:8: error: unknown type name &#39;__always_inline&#39; On a system running glibc, this isn&rsquo;t actually an issue; __always_inline is defined.
+This isn&rsquo;t the case on systems that are using musl or other libc&rsquo;s though.
+So, as a quick fix, open up /usr/include/linux/swab." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dragnosmz.github.io/posts/0x01/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-07T00:00:00+05:30" />
+<meta property="article:modified_time" content="2022-11-07T00:00:00+05:30" />
+
+
+
+
+
+
+  </head>
+  <body >
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="https://dragnosmz.github.io/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about/">about</a></li>
+        
+      
+        
+          <li><a href="/contact/">contact</a></li>
+        
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about/">about</a></li>
+      
+    
+      
+        <li><a href="/contact/">contact</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
 </header>
-<main id="content">
-<article>
-    <header id="post-header">
-        <h1>0x01 __always_inline, linux, and musl</h1>
-        <div>
-                <time>November 7, 2022</time>
-            </div>
-    </header><p>If you&rsquo;re trying to install kiss linux (or any non-glibc distribution) with a linux 5.x kernel, you may find that you&rsquo;ll run into an error trying to build the kernel.</p>
+
+
+      <div class="content">
+        
+  
+  
+
+  <article class="post">
+    <h1 class="post-title">0x01 __always_inline, linux, and musl</h1>
+    <div class="post-meta">
+      
+        <time class="post-date">
+          2022-11-07
+        </time>
+
+        
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>If you&rsquo;re trying to install kiss linux (or any non-glibc distribution) with a linux 5.x kernel, you may find that you&rsquo;ll run into an error trying to build the kernel.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/usr/include/linux/byteorder/little_endian.h:44:8: error: unknown type name <span style="color:#e6db74">&#39;__always_inline&#39;</span>
-</span></span></code></pre></div><p>On a system running glibc, this isn&rsquo;t particularly an issue; __always_inline is defined.<br>
+</span></span></code></pre></div><p>On a system running glibc, this isn&rsquo;t actually an issue; __always_inline is defined.<br>
 This isn&rsquo;t the case on systems that are using musl or other libc&rsquo;s though.</p>
-<p>So, as a quick fix, open up /usr/include/linux/swab.h in your flavor of text editor, and include linux/stddef.h just below linux/types.h.</p>
+<p>So, as a quick fix, open up /usr/include/linux/swab.h in your favourite text editor, and include linux/stddef.h just below linux/types.h.</p>
 <p><code>#include &lt;linux/types.h&gt;</code></p>
 <p><code>#include &lt;linux/stddef.h&gt;</code></p>
 <p>With that, try to build again and you should be up an running.<br>
-Several PRs have been made in regards to this issue, so hopefully this will be fixed soon.</p>
-</article>
+Several PRs have been made recently, so hopefully this will be fixed soon.</p>
 
-        </main><footer id="footer">
+    </div>
     
+
+    
+      
+    
+  </article>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="https://dragnosmz.github.io/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    
+  </div>
 </footer>
-</body>
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
 </html>

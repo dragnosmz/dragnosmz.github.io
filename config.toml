@@ -1,7 +1,7 @@
 baseURL = 'https://dragnosmz.github.io/'
 languageCode = 'en-us'
 title = "Senath's blog"
-theme = 'etch'
+theme = 'hello'
 [menu]
  
   [[menu.main]]
