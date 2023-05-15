@@ -1,13 +1,5 @@
 <footer class="footer">
-  <div class="footer__inner">
-    {{ if $.Site.Copyright }}
-      <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
-      {{ else }}
-      {{ partial "logo.html" . }}
-    {{ end }}
-  </div>
 </footer>
-
 {{ $menu := resources.Get "js/menu.js" | js.Build }}
 {{ $prism := resources.Get "js/prism.js" | js.Build }}
 {{ $theme := resources.Get "js/theme.js" | js.Build }}
