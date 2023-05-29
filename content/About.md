@@ -9,7 +9,7 @@ This isn't strictly tech related. This is just a blog for me to write whatever c
 If you find this website ugly - *[It's minimal.](http://motherfuckingwebsite.com/)*
 
 I'm Senath Methsuka, I'm an 18-year-old dude living in Sri Lanka.  
-I'm a student and a lowly C hobbyist. I love neuroscience, Linux and synthwave.  
+I'm a student and a lowly C hobbyist who loves Linux.  
 
 My main interests at the moment are Deep learning and Programming language implementation.  
 
