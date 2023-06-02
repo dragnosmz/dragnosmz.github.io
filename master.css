@@ -1,0 +1,53 @@
+body {
+    background: #171717;
+    color: #858585;
+    width: 80%;
+    margin: auto;
+}
+
+h2 {
+    color: #5c907a;
+}
+h3 {
+    color: #5c907a;
+}
+
+h3 > span:first-child {
+    font-family: monospace;
+}
+
+a:link, a:visited, a:hover {
+    text-decoration: none;
+    font-style: italic;
+    color: #858585;
+    border-bottom: 1px dotted;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid;
+}
+
+iframe {
+    border: none;
+    height: 19px;
+    width: 200px;
+}
+
+pre {
+    margin: 0;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.125);
+}
+
+header {
+    display: flex;
+}
+
+header > nav {
+    flex-grow: 1;
+}
+
+header > nav > a {
+    margin-right: 12px;
+}
