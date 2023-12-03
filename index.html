@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Senath's Blog</title>
     <meta name="description" content="Senath's blog">
-    
-    <!-- Recommended minimum -->
     <meta property="og:title" content="Senath's Blog">
     <meta property="og:description" content="Senath's Blog">
-    
-    <!-- You could also inline the stylesheet -->
     <link rel="stylesheet" href="master.css">
     <link rel="icon" type="image/x-icon" href="neural.ico">
     
@@ -26,22 +22,18 @@
         <a href="contact.html">Contact</a>
       </nav>
     </header>
-    
-    <main>
-      
-      <section id="home"> <!-- HOME -->
-        
+    <section id="home">
+    <main>     
         <hr>
-		<a id="0x05"></a>
+		<a id="0x04"></a>
 		<article>
-			<h3><span>0x05</span> &mdash; <i>you won't see me for a year or two</i></h3>
+			<h3><span>0x04</span> &mdash; <i>you won't see me for a year or two</i></h3>
 			<p>
 				Just as a quick reminder if you've been following my blog,
 				<br>
                 <br>
 				<br>
-				this is a <i>personal</i> blog. it seems suddenly that the years accelerate and move faster and faster. I've been writing a lot about programming
-				lately, but it's time to switch speeds a little bit.
+				This is a personal blog. It seems suddenly that the years accelerate and move faster and faster. Time to switch speeds a little bit.
 				<br>
                 <br>
                 By the way, here is one of my favorite lines from Hozier,
@@ -62,24 +54,17 @@
             </p>
         </article>
         <hr>
-		<a id="0x04"></a>
+		<a id="0x03"></a>
 		<article>
-			<h3><span>0x04</span> &mdash; <i>resisting temptation...</i></h3>
+			<h3><span>0x03</span> &mdash; <i>resisting temptation...</i></h3>
 			<p>          
                 <br>
                 <i>why is it important to learn to be bored...</i>
                 <br>
                 <br>
-                Because all of these things that you are addicted to are hyper-stimulating to your brain.
+                Because all these things you're addicted to are hyper-stimulating your brain.
                 <br>
                 You only need them because your standard for what entertains you is extremely high.
-                <br>
-                social media is useless.
-                <br>
-                <br>
-                Most of these platforms are exclusively for short-form content.
-                <br>
-                It makes it nearly impossible to publish anything meaningful on them.
                 <br>
                 <br>
                 People don't have the attention span anymore to just go out in the middle of nowhere and enjoy life.
@@ -92,9 +77,9 @@
 		</article>
 
 		<hr>
-		<a id="0x03"></a>
+		<a id="0x02"></a>
 		<article>
-			<h3><span>0x03</span> &mdash; <i>a love letter to forums</i></h3>
+			<h3><span>0x02</span> &mdash; <i>a love letter to forums</i></h3>
 			<p>
                 Time goes on, technology is innovated upon, however when I was younger, I used to be enthralled through forums.
                 <br>  
@@ -123,9 +108,9 @@
             </p>
 		</article>
 		<hr>
-		<a id="0x02"></a>
+		<a id="0x01"></a>
 		<article>
-			<h3><span>0x02</span> &mdash; <i>systemdo or systemdon't</i></h3>
+			<h3><span>0x01</span> &mdash; <i>systemdo or systemdon't</i></h3>
 			<p>
                 Often times in the Linux community, people will tell you things like “systemd is terrible” and that you shouldn’t use it.
                 <br>
@@ -173,33 +158,6 @@
                 <br>
                 *Shut up*. let them analyze the pros or cons of the software themselves. after all, for as much as I dislike systemd myself, <i>it just works</i>.
                 <br>
-                <div class="post-meta"><time class="post-date">2023-02-21</time></div>
-            </p>
-
-        <hr>
-		<a id="0x01"></a>
-		<article>
-			<h3><span>0x01</span> &mdash; <i>__always_inline, linux, and musl</i></h3>
-			<p>
-			If you're trying to install kiss linux (or any non-glibc distribution) with a linux 5.x kernel, you may find that you'll run into an error trying to build the kernel.
-			
-			   <pre>/usr/include/linux/byteorder/little_endian.h:44:8: error: 
-                unknown type name '__always_inline'</pre>
-			
-				On a system running glibc, this isn't actually an issue; __always_inline is defined.
-				<br>
-				This isn't the case on systems that are using musl or other libc's though.
-				<br>
-				<br>
-				So, as a quick fix, open up /usr/include/linux/swab.h in your favourite text editor, and include linux/stddef.h just below linux/types.h.
-			   <pre>
-                #include &lt;linux/types.h&gt;
-                #include &lt;linux/stddef.h&gt;</pre>
-                
-			
-				With that, try to build again and you should be up an running. 
-				<br>
-				Several PRs have been made recently, so hopefully this will be fixed soon.
                 <div class="post-meta"><time class="post-date">2023-01-14</time></div>
             </p>
 		</article>        
