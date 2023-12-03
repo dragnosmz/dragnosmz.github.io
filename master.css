@@ -318,5 +318,3 @@ a[href$=".png"]:before { content: "IMG"; }
     height: 100vh;
     object-fit: contain;
   }
-    
-}
