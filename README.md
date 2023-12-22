@@ -1,2 +1,2 @@
-## Essentially my mind dump
-### - enjoy -
+ Essentially my mind dump
+- enjoy -
